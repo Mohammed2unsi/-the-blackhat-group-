@@ -12,7 +12,7 @@
     <style>
         /* Global styles */
         html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -47,7 +47,6 @@
             100% { background-position-y: 10px; }
         }
 
-        /* Fixed navigation bar */
         header {
             position: fixed;
             width: 100%;
@@ -74,7 +73,6 @@
             color: #ffcc00;
         }
 
-        /* Hero section */
         .hero {
             height: 100vh;
             display: flex;
@@ -85,7 +83,7 @@
             background: linear-gradient(to bottom, #000000, #001f1f);
             padding: 20px;
             position: relative;
-            z-index: 1; /* Above the animation */
+            z-index: 1;
         }
 
         .binary-title span {
@@ -128,24 +126,6 @@
         .team-btn:hover {
             background: #ffcc00;
             transform: scale(1.05);
-        }
-
-        .visit-btn {
-            margin-top: 20px;
-            display: inline-block;
-            background: #1a1a1a;
-            color: #00ffcc;
-            border: 2px solid #00ffcc;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .visit-btn:hover {
-            background-color: #00ffcc;
-            color: #000;
         }
 
         .project {
@@ -201,7 +181,6 @@
             z-index: 2;
         }
 
-        /* Scroll to top button */
         #scrollTopBtn {
             position: fixed;
             bottom: 20px;
@@ -220,6 +199,56 @@
 
         #scrollTopBtn:hover {
             background: #ffcc00;
+        }
+
+        /*  Responsive Styles for Mobile and Tablets */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .hero {
+                height: auto;
+                padding: 60px 15px 40px;
+            }
+
+            .binary-title span {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 60px 15px 40px;
+            }
+
+            .project {
+                margin: 10px 5px;
+                padding: 15px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 1em;
+                width: 100%;
+            }
+
+            .team-btn {
+                width: 100%;
+                font-size: 1em;
+            }
+
+            footer {
+                font-size: 0.8em;
+                padding: 15px;
+            }
+
+            #scrollTopBtn {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -308,7 +337,6 @@
 
 <!-- JavaScript for Interactions -->
 <script>
-    // Toggle Team List
     document.getElementById("toggleTeam").addEventListener("click", function () {
         let teamList = document.getElementById("teamList");
         if (teamList.style.display === "none" || teamList.style.display === "") {
@@ -322,7 +350,6 @@
         }
     });
 
-    // Scroll to Top Button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
     window.onscroll = function () {
