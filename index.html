@@ -10,21 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> 
 
     <style>
-        /* Global styles */
+        /* ======== Mohammed Tunsi's Work: Design Styling ======= */
         html {
-            scroll-behavior: smooth; /* Smooth scrolling between sections */
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
-            font-family: 'Courier Prime', monospace; /* Custom font for the page */
-            background-color: #000; /* Black background */
-            color: #00ffcc; /* Cyan text color */
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Courier Prime', monospace;
+            background-color: #000;
+            color: #00ffcc;
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* Cyber animation background */
         body::before {
             content: "";
             position: fixed;
@@ -47,7 +46,6 @@
             100% { background-position-y: 10px; }
         }
 
-        /* Header and navigation styles */
         header {
             position: fixed;
             width: 100%;
@@ -60,21 +58,20 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 30px; /* Adds space between navigation items */
+            gap: 30px;
         }
 
         nav a {
-            color: #00ffcc; /* Cyan color for navigation links */
-            text-decoration: none; /* Removes underline */
+            color: #00ffcc;
+            text-decoration: none;
             padding: 10px;
-            transition: color 0.3s; /* Smooth color transition */
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #ffcc00; /* Yellow color on hover */
+            color: #ffcc00;
         }
 
-        /* Hero section styles */
         .hero {
             height: 100vh;
             display: flex;
@@ -98,7 +95,6 @@
             100% { opacity: 1; }
         }
 
-        /* Section styling for about, projects, and others */
         .section {
             padding: 80px 20px 60px;
             text-align: center;
@@ -106,7 +102,6 @@
             z-index: 1;
         }
 
-        /* Styles for Team Section and Button */
         .team {
             max-width: 600px;
             margin: auto;
@@ -132,7 +127,6 @@
             transform: scale(1.05);
         }
 
-        /* Project box hover effect */
         .project {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
@@ -147,7 +141,6 @@
             transform: scale(1.03);
         }
 
-        /* Contact form styling */
         .contact-form {
             max-width: 500px;
             margin: auto;
@@ -179,7 +172,6 @@
             background-color: #ffcc00;
         }
 
-        /* Footer styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -188,7 +180,6 @@
             z-index: 2;
         }
 
-        /* Scroll to top button styling */
         #scrollTopBtn {
             position: fixed;
             bottom: 20px;
@@ -209,7 +200,6 @@
             background: #ffcc00;
         }
 
-        /*  Responsive Styles for Mobile and Tablets */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -263,19 +253,19 @@
 
 <body>
 
-<!-- Navigation Bar -->
+<!-- ========Jameel Hassan's Work: Navigation & Layout ======== -->
 <header>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#projects">Projects</a>
-        <a href="#games">Games</a> <!-- Added the Games link here -->
+        <a href="#games">Games</a>
         <a href="#team">Team Members</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- ======= Yahya Moharrak's Work: HTML Holder ======= -->
 <section id="home" class="hero">
     <h1 class="binary-title">
         <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
@@ -287,14 +277,14 @@
     <p>Innovating the Future of Cybersecurity through Collaboration and Creativity.</p>
 </section>
 
-<!-- About Us -->
+<!-- ======= Ahmed Nahdi's Work: Group Identity ======= -->
 <section id="about" class="section">
     <h2>About Us</h2>
     <p>The Blackhat Group is a team of cybersecurity enthusiasts dedicated to protecting the digital world.</p>
     <p>We work on real-world projects in penetration testing, secure networking, and awareness campaigns.</p>
 </section>
 
-<!-- Projects Section -->
+<!-- ======= Group Collaboration (Led by Mohammed Tunsi) ======= -->
 <section id="projects" class="section">
     <h2>Our Work</h2>
     <div class="project">
@@ -311,21 +301,22 @@
     </div>
 </section>
 
-<!-- Team Section -->
+<!-- ======= Basil Alghamdi's Work: Button & JS Functionality ======= -->
 <section id="team" class="section">
     <h2>Our Team</h2>
     <button id="toggleTeam" class="team-btn">Show Team Members</button>
     <div class="team" id="teamList">
-        <p><strong>Mohammed Tunsi</strong> - Designer</p>
-        <p><strong>Jameel Hassan</strong> - Designer</p>
-        <p><strong>Ahmed Nahdi</strong> - Cover Page & Group Names</p>
-        <p><strong>Weleed Rajeh</strong> - Final Report</p>
-        <p><strong>Basil Alghamdi</strong> - Button & URL Linking</p>
-        <p><strong>Yahya Moharrak</strong> - HTML Holder</p>
+        <p><strong>Mohammed Tunsi</strong> – Lead Designer & CSS/Animations</p>
+        <p><strong>Jameel Hassan</strong> – HTML Navigation Structure & Game Section</p>
+        <p><strong>Ahmed Nahdi</strong> – Group Identity, About Section</p>
+        <p><strong>Weleed Rajeh</strong> – Final Report & Footer Credits</p>
+        <p><strong>Basil Alghamdi</strong> – Interactive Buttons & JavaScript Features</p>
+        <p><strong>Yahya Moharrak</strong> – HTML Hero Section (Homepage Intro)</p>
     </div>
 </section>
 
-<!-- Contact Form -->
+
+<!-- ======= Contact Form (Shared Team Input) ======== -->
 <section id="contact" class="section">
     <h2>Contact Us</h2>
     <div class="contact-form">
@@ -336,7 +327,7 @@
     </div>
 </section>
 
-<!-- Footer -->
+<!-- ======= Weleed Rajeh's Work: Final Wrap-up & Credits ======= -->
 <footer>
     <p>&copy; 2025 The Blackhat Group. All rights reserved.</p>
 </footer>
@@ -344,7 +335,7 @@
 <!-- Scroll to Top Button -->
 <button id="scrollTopBtn" title="Go to top">↑</button>
 
-<!-- JavaScript for Interactions -->
+<!-- JavaScript for Button Interactions -->
 <script>
     document.getElementById("toggleTeam").addEventListener("click", function () {
         let teamList = document.getElementById("teamList");
