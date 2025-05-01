@@ -1,18 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Blackhat Group</title>
-
-    <!--  Work by: Mohammed Tunsi & Jameel Hassan (Designers) -->
-    <!-- Google Font for styling -->
+    <!-- Designed by Mohammed Tunsi – Lead Designer -->
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-
     <style>
+        /* Enables smooth scrolling for in-page links (Jameel Hassan – Navigation) */
+        html { scroll-behavior: smooth; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* Base body styling including font, color scheme, and background animation overlay (Mohammed Tunsi – Lead Designer) */
         body {
             margin: 0;
             font-family: 'Courier Prime', monospace;
@@ -22,259 +20,136 @@
             position: relative;
         }
 
+        /* Background animated grid lines effect (Mohammed Tunsi – Lead Designer) */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: repeating-linear-gradient(
-                0deg,
-                rgba(0, 255, 204, 0.05) 0px,
-                rgba(0, 255, 204, 0.05) 1px,
-                transparent 1px,
-                transparent 2px
-            );
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: repeating-linear-gradient(0deg, rgba(0, 255, 204, 0.05) 0px, rgba(0, 255, 204, 0.05) 1px, transparent 1px, transparent 2px);
             animation: moveLines 2s linear infinite;
             z-index: 0;
             pointer-events: none;
         }
 
+        /* Animation to move the background lines vertically (Mohammed Tunsi – Lead Designer) */
         @keyframes moveLines {
-            0% {
-                background-position-y: 0;
-            }
-
-            100% {
-                background-position-y: 10px;
-            }
+            0% { background-position-y: 0; }
+            100% { background-position-y: 10px; }
         }
 
+        /* Fixed header containing navigation links (Jameel Hassan – Navigation) */
         header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            z-index: 1000;
+            position: fixed; width: 100%; top: 0;
+            background: rgba(0, 0, 0, 0.8); padding: 10px; z-index: 1000;
         }
 
+        /* Flexbox for centering navigation links (Jameel Hassan – Navigation) */
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
+            display: flex; justify-content: center; gap: 30px;
         }
 
+        /* Navigation link styles (Jameel Hassan – Navigation) */
         nav a {
-            color: #00ffcc;
-            text-decoration: none;
-            padding: 10px;
+            color: #00ffcc; text-decoration: none; padding: 10px;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #ffcc00;
-        }
+        /* Hover effect for navigation links (Jameel Hassan – Navigation) */
+        nav a:hover { color: #ffcc00; }
 
+        /* Hero section: welcome message and background (Yahya Moharrak – Hero Section) */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, #000000, #001f1f);
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; background: linear-gradient(to bottom, #000, #001f1f);
+            padding: 20px; z-index: 1;
         }
 
+        /* Styling for animated welcome text (Yahya Moharrak – Hero Section) */
         .binary-title span {
-            font-size: 2.2rem;
-            animation: flicker 1.5s infinite alternate;
+            font-size: 2.2rem; animation: flicker 1.5s infinite alternate;
         }
 
+        /* Flicker animation for each letter (Yahya Moharrak – Hero Section) */
         @keyframes flicker {
-            0% {
-                opacity: 0.7;
-            }
-
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0.7; } 100% { opacity: 1; }
         }
 
-        .section {
-            padding: 80px 20px 60px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
+        /* Shared styling for each content section (Ahmed Nahdi – Identity & Content) */
+        .section { padding: 80px 20px 60px; text-align: center; z-index: 1; }
 
-        .team {
-            max-width: 600px;
-            margin: auto;
-            opacity: 0;
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
+        /* Team section initially hidden and faded (Basil Alghamdi – Buttons & Interactivity) */
+        .team { max-width: 600px; margin: auto; opacity: 0; display: none; transition: opacity 0.5s; }
 
-        .team-btn {
-            background: #00ffcc;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 15px;
+        /* Button styling used across sections (Basil Alghamdi – Buttons & Interactivity) */
+        .team-btn, .game button {
+            background: #00ffcc; color: #000; border: none; padding: 10px 20px; font-size: 1.1em;
+            cursor: pointer; border-radius: 5px; margin-top: 15px;
             transition: background 0.3s, transform 0.2s;
         }
 
-        .team-btn:hover {
-            background: #ffcc00;
-            transform: scale(1.05);
-        }
+        /* Hover effect for buttons (Basil Alghamdi – Buttons & Interactivity) */
+        .team-btn:hover, .game button:hover { background: #ffcc00; transform: scale(1.05); }
 
+        /* Styling for each project box (Ahmed Nahdi – Identity & Content) */
         .project {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            margin: 15px auto;
-            border-radius: 10px;
-            max-width: 800px;
-            transition: transform 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.7); padding: 20px; margin: 15px auto;
+            border-radius: 10px; max-width: 800px; transition: transform 0.3s;
             box-shadow: 0 0 15px #00ffcc33;
         }
 
-        .project:hover {
-            transform: scale(1.03);
-        }
+        /* Hover animation for project boxes (Ahmed Nahdi – Identity & Content) */
+        .project:hover { transform: scale(1.03); }
 
+        /* Contact form styling (Ahmed Nahdi – Identity & Content) */
         .contact-form {
-            max-width: 500px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
+        /* Input and textarea styling in contact form (Ahmed Nahdi – Identity & Content) */
+        .contact-form input, .contact-form textarea {
+            padding: 10px; border: none; border-radius: 5px;
             font-family: 'Courier Prime', monospace;
         }
 
+        /* Submit button styling in contact form (Basil Alghamdi – Buttons & Interactivity) */
         .contact-form button {
-            background-color: #00ffcc;
-            color: #000;
-            border: none;
-            padding: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
+            background-color: #00ffcc; color: #000; border: none; padding: 10px; font-weight: bold;
+            cursor: pointer; border-radius: 5px; transition: background 0.3s;
         }
 
-        .contact-form button:hover {
-            background-color: #ffcc00;
-        }
+        /* Hover effect for form submit button (Basil Alghamdi – Buttons & Interactivity) */
+        .contact-form button:hover { background-color: #ffcc00; }
 
+        /* Footer styles (Mohammed Tunsi – Lead Designer) */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #000;
-            font-size: 0.9em;
-            z-index: 2;
+            text-align: center; padding: 20px; background: #000; font-size: 0.9em;
         }
 
+        /* Scroll-to-top button styles (Basil Alghamdi – Buttons & Interactivity) */
         #scrollTopBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #00ffcc;
-            color: #000;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            display: none;
-            box-shadow: 0 0 10px #00ffcc55;
-            z-index: 2000;
+            position: fixed; bottom: 20px; right: 20px; background: #00ffcc; color: #000;
+            padding: 10px 15px; border: none; border-radius: 50%; font-size: 18px; cursor: pointer;
+            display: none; box-shadow: 0 0 10px #00ffcc55; z-index: 2000;
         }
 
-        #scrollTopBtn:hover {
-            background: #ffcc00;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .hero {
-                height: auto;
-                padding: 60px 15px 40px;
-            }
-
-            .binary-title span {
-                font-size: 1.4rem;
-            }
-
-            .section {
-                padding: 60px 15px 40px;
-            }
-
-            .project {
-                margin: 10px 5px;
-                padding: 15px;
-            }
-
-            .contact-form input,
-            .contact-form textarea {
-                font-size: 1em;
-                width: 100%;
-            }
-
-            .team-btn {
-                width: 100%;
-                font-size: 1em;
-            }
-
-            footer {
-                font-size: 0.8em;
-                padding: 15px;
-            }
-
-            #scrollTopBtn {
-                bottom: 15px;
-                right: 15px;
-                padding: 8px 12px;
-                font-size: 16px;
-            }
-        }
+        /* Scroll-to-top button hover effect (Basil Alghamdi – Buttons & Interactivity) */
+        #scrollTopBtn:hover { background: #ffcc00; }
     </style>
 </head>
-
 <body>
-    <!--  Work by: Basil Alghamdi (Button & Linking) -->
+    <!-- Navigation Bar (Jameel Hassan – Navigation) -->
     <header>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
             <a href="#projects">Projects</a>
-            <a href="#games">Games</a>
             <a href="#team">Team Members</a>
+            <a href="#games">Games</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <!--  Work by: Mohammed Tunsi -->
+    <!-- Hero Section (Yahya Moharrak – Hero Section) -->
     <section id="home" class="hero">
         <h1 class="binary-title">
             <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
@@ -286,68 +161,106 @@
         <p>Innovating the Future of Cybersecurity through Collaboration and Creativity.</p>
     </section>
 
-    <!--  Work by: Ahmed Nahdi (Cover Page & Group Names) -->
+    <!-- About Section (Ahmed Nahdi – Identity & Content) -->
     <section id="about" class="section">
         <h2>About Us</h2>
         <p>The Blackhat Group is a team of cybersecurity enthusiasts dedicated to protecting the digital world.</p>
         <p>We work on real-world projects in penetration testing, secure networking, and awareness campaigns.</p>
     </section>
 
-    <!--  Work by: Ahmed Nahdi -->
+    <!-- Projects Section (Ahmed Nahdi – Identity & Content) -->
     <section id="projects" class="section">
         <h2>Our Work</h2>
-        <div class="project">
-            <h3>Cybersecurity Awareness Campaign</h3>
-            <p>Focused on education about phishing, malware, and password safety via workshops and games.</p>
+        <div class="project"><h3>Cybersecurity Awareness Campaign</h3><p>Workshops and games focused on phishing, malware, and password safety.</p></div>
+        <div class="project"><h3>Network Penetration Testing</h3><p>Simulating attacks to uncover vulnerabilities and secure networks.</p></div>
+        <div class="project"><h3>Incident Response Plan</h3><p>A step-by-step guide for organizations facing cyber threats.</p></div>
+    </section>
+
+    <!-- Games Section (Waleed Rajeh – Games & Report) -->
+    <section id="games" class="section">
+        <h2>Cybersecurity Games</h2>
+        <div class="game">
+            <h3>Phishing Quiz</h3>
+            <p>Can you spot the scam?</p>
+            <button onclick="startPhishingQuiz()">Start Quiz</button>
+            <div id="phishingQuiz" style="display:none;">
+                <p>Is this email legit? <strong>You've won a free iPhone!</strong></p>
+                <button onclick="checkAnswer(false)">No</button>
+                <button onclick="checkAnswer(true)">Yes</button>
+                <p id="quizResult"></p>
+            </div>
         </div>
-        <div class="project">
-            <h3>Network Penetration Testing</h3>
-            <p>Simulating real attacks on networks to uncover vulnerabilities and offer secure solutions.</p>
+        <div class="game">
+            <h3>Password Strength Checker</h3>
+            <p>Enter a password:</p>
+            <input type="password" id="passwordInput">
+            <button onclick="checkPasswordStrength()">Check</button>
+            <p id="passwordStrength"></p>
         </div>
-        <div class="project">
-            <h3>Incident Response Plan</h3>
-            <p>A structured guide for organizations to follow during cyber threats — from detection to recovery.</p>
+        <div class="game">
+            <h3>Word Scramble</h3>
+            <p>Unscramble the letters to find the correct word:</p>
+            <strong>LOHEL</strong>
+            <p>Hint: A common greeting.</p>
+            <input type="text" id="scrambleInput" placeholder="Your answer">
+            <button onclick="checkScramble()">Submit</button>
+            <p id="scrambleResult"></p>
         </div>
     </section>
 
-    <!--  Work by: Yahya Moharrak (HTML Holder) -->
-   <section id="team" class="section">
-    <h2>Our Team</h2>
-    <button id="toggleTeam" class="team-btn">Show Team Members</button>
-    <div class="team" id="teamList">
-        <p><strong>Mohammed Tunsi</strong> – Lead Designer & CSS/Animations</p>
-        <p><strong>Jameel Hassan</strong> – HTML Navigation Structure & Games</p>
-        <p><strong>Ahmed Nahdi</strong> – Group Identity, About Section</p>
-        <p><strong>Weleed Rajeh</strong> – Final Report </p>
-        <p><strong>Basil Alghamdi</strong> – Interactive Buttons </p>
-        <p><strong>Yahya Moharrak</strong> – HTML Hero Section (Homepage Intro)</p>
-    </div>
-</section>
+    <!-- Team Section (Basil Alghamdi – Buttons & Interactivity) -->
+    <section id="team" class="section">
+        <h2>Our Team</h2>
+        <button id="toggleTeam" class="team-btn">Show Team Members</button>
+        <div class="team" id="teamList">
+            <p><strong>Mohammed Tunsi</strong> – Lead Designer</p>
+            <p><strong>Jameel Hassan</strong> – Navigation</p>
+            <p><strong>Yahya Moharrak</strong> – Hero Section</p>
+            <p><strong>Ahmed Nahdi</strong> – Identity & Content</p>
+            <p><strong>Basil Alghamdi</strong> – Buttons & Interactivity</p>
+            <p><strong>Waleed Rajeh</strong> – Games & Report</p>
+        </div>
+    </section>
 
-    <!--  Work by: Jameel Hassan (Form UI) -->
+    <!-- Contact Section (Ahmed Nahdi – Identity & Content) -->
     <section id="contact" class="section">
         <h2>Contact Us</h2>
-        <div class="contact-form">
+        <form class="contact-form">
             <input type="text" placeholder="Your Name">
             <input type="email" placeholder="Your Email">
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button>Send Message</button>
-        </div>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
     </section>
 
-    <!--  Work by: Mohammed Tunsi (Footer Styling) -->
+    <!-- Footer (Mohammed Tunsi – Lead Designer) -->
     <footer>
         <p>&copy; 2025 The Blackhat Group. All rights reserved.</p>
     </footer>
 
-    <!--  Work by: Basil Alghamdi (Button & Interactivity) -->
-    <button id="scrollTopBtn" title="Go to top">↑</button>
+    <!-- Scroll-to-top Button (Basil Alghamdi – Buttons & Interactivity) -->
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
-    <!--  Work by: Basil Alghamdi -->
     <script>
+        // Scroll-to-top functionality (Basil Alghamdi – Buttons & Interactivity)
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() {
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
+
+        // JavaScript for toggling team member visibility
         document.getElementById("toggleTeam").addEventListener("click", function () {
-            let teamList = document.getElementById("teamList");
-            if (teamList.style.display === "none" || teamList.style.display === "") {
+            const teamList = document.getElementById("teamList");
+            const isHidden = teamList.style.display === "none" || teamList.style.display === "";
+            if (isHidden) {
                 teamList.style.display = "block";
                 setTimeout(() => teamList.style.opacity = "1", 10);
                 this.textContent = "Hide Team Members";
@@ -358,21 +271,50 @@
             }
         });
 
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-
+        // JavaScript for scroll-to-top button
         window.onscroll = function () {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.display = "block";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
+            document.getElementById("scrollTopBtn").style.display =
+                document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? "block" : "none";
         };
 
-        scrollTopBtn.onclick = function () {
+        document.getElementById("scrollTopBtn").onclick = function () {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         };
+
+        // Phishing Quiz functions
+        function startPhishingQuiz() {
+            document.getElementById("phishingQuiz").style.display = "block";
+        }
+
+        function checkAnswer(isLegit) {
+            const result = document.getElementById("quizResult");
+            result.textContent = isLegit ? "Incorrect! This is a phishing attempt." : "Correct! It's a phishing attempt.";
+        }
+
+        // Password Strength Checker
+        function checkPasswordStrength() {
+            const password = document.getElementById("passwordInput").value;
+            let strength = "Weak";
+            if (password.length >= 8) {
+                strength = /[A-Z]/.test(password) && /[0-9]/.test(password) ? "Strong" : "Moderate";
+            }
+            document.getElementById("passwordStrength").textContent = `Password strength: ${strength}`;
+        }
+
+        // Word Scramble Game
+        function checkScramble() {
+            const input = document.getElementById("scrambleInput").value.trim().toUpperCase();
+            const result = document.getElementById("scrambleResult");
+
+            if (input === "HELLO") {
+                result.textContent = "🎉 Correct! Great job.";
+            } else {
+                result.textContent = "❌ Incorrect. Try again!";
+            }
+        }
+    
+
     </script>
 </body>
-
 </html>
